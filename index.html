@@ -79,6 +79,28 @@
 </head>
 <body>
   <header>
+    <button onclick="showDay(0)" class="text-button" style="color:#00cc00;">[ Home ]</button>
+    <button onclick="showDay(1)" class="text-button" style="color:#00cc00;">[ Days ]</button>
+    <button onclick="showDay(100)" class="text-button" style="color:#00cc00;">[ Search ]</button>
+    <button onclick="showDay(101)" class="text-button" style="color:#00cc00;">[ About Us ]</button>
+
+    <style>
+      .text-button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .text-button:hover {
+        text-decoration: underline;
+      }
+    </style>
+
+
     <h1>Mini Advent of Code</h1>
   </header>
   <main>
@@ -133,13 +155,10 @@
         input2050();
         </script>
 
-        <textarea id="input2" placeholder="Paste answer here..."></textarea>
+        <textarea id="input1" placeholder="Paste answer here..."></textarea>
         <br>
-        <button onclick="day2050_1()">Answer Part 1</button>
+        <button onclick="day2050()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
         <span id="stars1" class="stars"></span>
-
-        <button onclick="runDay(1, 2)">Answer Part 2</button>
-        <span id="stars2" class="stars"></span>
 
       </div>
      
@@ -151,34 +170,32 @@
 
         <p>
           Your puzzle input was
-          <span id="output21"></span>
+          <span id="output991"></span>
         </p>
 
-        <textarea id="input2" placeholder="Paste answer here..."></textarea>
+        <textarea id="input99" placeholder="Paste answer here..."></textarea>
         <br>
-        <button onclick="simpleday()">Answer Part 1</button>
-        <p><span id="output22"></span></p>
+        <button onclick="simpleday()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <p><span id="output992"></span></p>
 
 
         <script>
         let puzzleInput = Math.floor(Math.random() * 10);
-        document.getElementById("output21").textContent = puzzleInput;
+        document.getElementById("output991").textContent = puzzleInput;
 
         function simpleday() {
 
-          let raw = document.getElementById("input2").value;
-          let cleaned = raw.trim();
-          let userInput = Number(cleaned);
+          let userInput = Number(document.getElementById("input99").value);
 
           if (!isNaN(userInput)) {
             if (userInput === puzzleInput + 1) {
-              document.getElementById("output22").textContent = "Correct!";
-              document.getElementById("input2").disabled = true;
+              document.getElementById("output992").textContent = "Correct!";
+              document.getElementById("input99").disabled = true;
             } else {
-              document.getElementById("output22").textContent = userInput;
+              document.getElementById("output992").textContent = "Wrong!";
             }
           } else {
-            document.getElementById("output22").textContent = "Please enter a valid number!";
+            document.getElementById("output992").textContent = "Please enter a valid number!";
           }
         }
         </script>
@@ -186,18 +203,46 @@
       </div>
 
 
+      <!-- Day 2 -->
+      <div class="day-container" id="day-2">
+        <h2>Day 2</h2>
+        <textarea id="input2" placeholder="Paste input here..."></textarea>
+        <br>
+        <button onclick="runDay(3, 1)" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <div id="output21"></div>
+      </div>
+
       <!-- Day 3 -->
       <div class="day-container" id="day-3">
         <h2>Day 3</h2>
-        <textarea id="inputDay3" placeholder="Paste input here..."></textarea>
+        <textarea id="input3" placeholder="Paste input here..."></textarea>
         <br>
-        <button onclick="runDay(3, 1)">Run Part 1</button>
-        <span id="stars31" class="stars"></span>
-        <div id="output31" class="output"></div>
-        <button onclick="runDay(3, 2)">Run Part 2</button>
-        <span id="stars32" class="stars"></span>
-        <div id="output32" class="output"></div>
+        <button onclick="runDay(3, 1)" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <div id="output31"></div>
       </div>
+
+      <!-- Home -->
+      <div class="day-container" id="day-0">
+        <h2>[ --- Mini Advent of Code --- ]</h2>
+        <p>Hello</p>
+      </div>
+
+      <!-- Search -->
+      <div class="day-container" id="day-100">
+        <form action="https://www.google.com/search" method="get" role="search">
+          <label for="site-search" class="visually-hidden">Search the site:</label>
+          <input type="search" id="site-search" name="q" placeholder="Search Google..." aria-label="Search through site content" />
+          <button type="submit">Search</button>
+        </form>
+        <p>Hello</p>
+      </div>
+
+      <!-- About -->
+      <div class="day-container" id="day-101">
+        <h2>[ --- About Us --- ]</h2>
+        <p>This should be a introudction but i am too lazy to do this in one day</p>
+      </div>
+
     </div>
   </main>
 
@@ -218,7 +263,7 @@
     });
 
 
-    showDay(1); // default
+    showDay(0);
   </script>
 </body>
 </html>
