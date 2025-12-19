@@ -108,7 +108,7 @@
       <label for="daySelect">Select Day: </label>
       <select id="daySelect">
         <option value="1">Day 2050</option>
-        <option value="2">Day 2</option>
+        <option value="2">Day -1</option>
         <option value="3">Day 3</option>
         <option value="99">Test Day</option>
       </select>
@@ -119,7 +119,7 @@
       <!--Day 2050-->
       <div class="day-container" id="day-1">
         <h2>-- Day 2050: Time Travel?! --</h2>
-        <h7>From: Leo, </h7>
+        <h7>From: <h7><a target="_blank" style="color: #00cc00;">Leo</a></h7>,</h7>
         <p>The Poor Elf That is writing this on Christmas</p>
         <p>Merry Christmas! Or like what Santa said Early Christmas, because he will be launching a <a href="https://en.wikipedia.org/wiki/Hawking%27s_time_traveller_party" target="_blank" style="color: #00cc00;">time travel party</a> through the whole December to all the future time travellers, you can come at any time in December.</p>
         <p>But because of the strong magnetic field on the North Pole, not only you can't take your <a href="https://en.wikipedia.org/wiki/Back_to_the_Future" target="_blank" style="color: #00cc00;">iconic DMC DeLorean</a> over, and after you time traveled you can only stay for an hour then you will flicker back. But as smart as you are, you found a pattern. The sequence looks awfully like the <a href="https://en.wikipedia.org/wiki/Recam%C3%A1n%27s_sequence" target="_blank" style="color: #00cc00;">Recamán's sequence</a>. There are only 744 hours in December, so you better hurry to calculate which hours to start (the range in your puzzle input) to get the most hours you can get with your idol Santa. You plug the sequence on your high tech calculator, if you start on hour 0, the first terms of the sequence are:</p>
@@ -158,8 +158,7 @@
         <textarea id="input1" placeholder="Paste answer here..."></textarea>
         <br>
         <button onclick="day2050()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
-        <span id="stars1" class="stars"></span>
-
+        <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
       </div>
      
       <!-- Test -->
@@ -205,17 +204,38 @@
 
       <!-- Day 2 -->
       <div class="day-container" id="day-2">
-        <h2>Day 2</h2>
-        <textarea id="input2" placeholder="Paste input here..."></textarea>
+        <h2>-- Day -1: <h7><a target="_blank" style="color: #ac0808;">Grinch!</a></h7> --</h2>
+        <p>Welcome to day negative one! Somehow this is achievable with time travel! :D</p>
+        <p>In order to start Advent lets do the following puzzle!</p>
+        <p>tree place holder</p>
+        <p>It's "Advent Code Time" for whatever reason we went from 50 challengers to one! But conveniently that is all you need to decorate the Christmas tree. That star you can collect by completing the following puzzle!</p>
+        <p>Due to the <a href="https://en.wikipedia.org/wiki/Industrial_Revolution" target="_blank" style="color: #00cc00;">Industrial Revolution</a>, the tree's additional decorations are automated. The issue is that the engineer <a target="_blank" style="color: #00cc00;">Alston Liu</a>, TIME TRAVELED TO LAS VEGAS! So there are some errors which make decorations of the same color appear next to each other when they should be spread out!</p>
+        <p>We will use the following input as an example.</p>
+        <p><a target="_blank" style="color: #ffffff;">1</a>23456</p>
+        <p>0<a target="_blank" style="color: #ffffff;">1</a>23456</p>
+        <p>65<a target="_blank" style="color: #ffffff;">4</a>321</p>
+        <p><a target="_blank" style="color: #ffffff;">1</a>23</p>
+        <img src="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=">
+        <p>1. You have a list of numbers in each row</p>
+        <p>2. You will have to take the first number of the first line <br> ex. 1</p>
+        <p>3. You will have to take the second number of the second line <br> ex. 1</p>
+        <p>4. Then compare those numbers if they are equal <br> ex. 1 <a target="_blank" style="color: #ffffff;">They are equal!</a></p>
+        <p>5. Repeat steps 2 and 3 with the next lines such as… <br><p style="text-indent:30px;"> * You take the third number of the third line <br><p style="text-indent:30px;"></p> * Then compare this new number with the previous most recent number :D <br><p style="text-indent:30px;"></p> * If the index of the number you take is not available, wrap around the same line such as… <br><p style="text-indent:30px;"></p><p style="text-indent:30px;"></p> - if the current line is "123456" but we want to take the 7th number, we would take the first number which is "1"</p>
+        <p>6. The final answer will be the number of times the two numbers are equal! <br>- In the example it would be one!</p>
+
+        <textarea id="input2" placeholder="Paste answer here..."></textarea>
         <br>
         <button onclick="runDay(3, 1)" class="text-button" style="color:#00cc00;">[ Submit ]</button>
         <div id="output21"></div>
+        <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
+
+
       </div>
 
       <!-- Day 3 -->
       <div class="day-container" id="day-3">
         <h2>Day 3</h2>
-        <textarea id="input3" placeholder="Paste input here..."></textarea>
+        <textarea id="input3" placeholder="Paste answer here..."></textarea>
         <br>
         <button onclick="runDay(3, 1)" class="text-button" style="color:#00cc00;">[ Submit ]</button>
         <div id="output31"></div>
