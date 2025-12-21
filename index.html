@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mini Advent of Code Clone</title>
+  <title>Mini Advent of Code</title>
+  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/leox7-bths/mini-advent-of-code/refs/heads/main/icon.png">
   <link rel="stylesheet" href="style.css" />
   <script defer src="https://pyscript.net/latest/pyscript.js"></script>
 </head>
@@ -227,29 +228,34 @@
       <!-- About -->
       <div class="day-container" id="day-101">
         <h2>[ --- About Us --- ]</h2>
+        <h3 style="margin: 0;">Developer Team</h3>
         <p>Lead Developer (scripting, web-design)</p>
-        <button onclick="showDay(102)" class="text-button" style="color:#00cc00;">Leo Xu</button>
-        <br>
+        <p>Leo Xu <button onclick="toggleText(1, this)" class="text-button" style="color:#00cc00;">Expand</button></p>
+        <p id="text1" style="display:none;">Bio<br>Bob the builder was here.</p>
+
         <p>Writer (web-design, content manager)</p>
-        <button onclick="showDay(103)" class="text-button" style="color:#00cc00;">Ava</button>
-        <br>
+        <p>Ava <button onclick="toggleText(2, this)" class="text-button" style="color:#00cc00;">Expand</button></p>
+        <p id="text2" style="display:none;">Bio<br>Hi, I'm the writer and screener of Mini Advent of Code! I'm really excited for the creation of this project, because being able to host, read through, and solve various individual's creations is an honor. If you'd like to personally send me a project, please do through GitHub. I'd love to see what you've made!</p>
+
         <p style="margin: 0;">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⋅ ⋆⋅ ☽ ◯ ☾ ⋅⋆ ⋅━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
-        <p>Leo - Day 2050</p>
-        <p>Alston Liu - Day -1</p>
-        <p>Selina Jiang - Day 25</p>
+        <h3 style="margin: 0;">Contributors</h3>
+        <p style="margin: 0;">Leo - <button onclick="showDay(1)" class="text-button" style="color:#00cc00;">Day 2050</button></p>
+        <p style="margin: 0;">Alston Liu - <button onclick="showDay(2)" class="text-button" style="color:#00cc00;">Day -1</button></p>
+        <p style="margin: 0;">Selina Jiang - <button onclick="showDay(3)" class="text-button" style="color:#00cc00;">Day 25</button></p>
       </div>
 
-      <!-- Leo -->
-      <div class="day-container" id="day-102">
-        <h2>[ --- Leo --- ]</h2>
-        <p>Here are my dreams</p>
-      </div>
-
-      <!-- Ava -->
-      <div class="day-container" id="day-103">
-        <h2>[ --- Ava --- ]</h2>
-        <p>Hi, I'm the writer and screener of Mini Advent of Code! I'm really excited for the creation of this project, because being able to host, read through, and solve various individual's creations is an honor. If you'd like to personally send me a project, please do through GitHub. I'd love to see what you've made!</p>
-      </div>
+      <script>
+        function toggleText(id, btn) {
+            const text = document.getElementById('text' + id);
+            if (text.style.display === 'none') {
+                text.style.display = 'block';
+                btn.textContent = 'Collapse';
+            } else {
+                text.style.display = 'none';
+                btn.textContent = 'Expand';
+            }
+        }
+      </script>
 
     </div>
   </main>
