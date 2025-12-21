@@ -1,1 +1,1 @@
-https://leox7-bths.github.io/mini-advent-of-code/
+You can find the GitHub repo here: https://leox7-bths.github.io/mini-advent-of-code/

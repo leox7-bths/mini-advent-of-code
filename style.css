@@ -66,3 +66,16 @@ button:hover {
 .controls {
     margin-bottom: 20px;
 }
+.text-button {
+background: none;
+border: none;
+padding: -1;
+margin: -1;
+color: inherit;
+font: inherit;
+cursor: pointer;
+}
+
+.text-button:hover {
+text-decoration: underline;
+}
