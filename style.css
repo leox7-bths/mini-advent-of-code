@@ -1,0 +1,68 @@
+body {
+    background: #0f0f23;
+    color: #cccccc;
+    font-family: "Source Code Pro", monospace;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background: #1a1a3b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #00cc00;
+}
+header h1 {
+    margin: 0;
+    color: #00cc00;
+}
+main {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+select, button, textarea {
+    font-family: monospace;
+    font-size: 16px;
+}
+textarea {
+    width: 100%;
+    min-height: 120px;
+    background: #10101a;
+    color: #eee;
+    border: 1px solid #333;
+    padding: 10px;
+    resize: vertical;
+}
+button {
+    background: #00cc00;
+    color: #000;
+    border: none;
+    padding: 8px 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 8px;
+}
+button:hover {
+    opacity: 0.9;
+}
+.output {
+    background: #10101a;
+    border: 1px solid #333;
+    padding: 10px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+.stars {
+    color: #00ff00;
+    font-size: 20px;
+    margin-left: 10px;
+}
+.day-container {
+    display: none;
+}
+.day-container.active {
+    display: block;
+}
+.controls {
+    margin-bottom: 20px;
+}
