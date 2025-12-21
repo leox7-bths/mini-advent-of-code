@@ -10,31 +10,57 @@
 
 <body>
   <header>
+    <button onclick="showDay(0)" class="text-button" style="color:#00cc00;">[ Home ]</button>
+    <button onclick="showDay(1)" class="text-button" style="color:#00cc00;">[ Days ]</button>
+    <button onclick="showDay(100)" class="text-button" style="color:#00cc00;">[ Search ]</button>
+    <button onclick="showDay(101)" class="text-button" style="color:#00cc00;">[ About Us ]</button>
+
+    <style>
+      .text-button {
+        background: none;
+        border: none;
+        padding: 0;
+        margin: 0;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+      }
+
+      .text-button:hover {
+        text-decoration: underline;
+      }
+    </style>
+
+
     <h1>Mini Advent of Code</h1>
   </header>
   <main>
-    <div class="controls">
+    <div class="controls" id="dayControls">
       <label for="daySelect">Select Day: </label>
       <select id="daySelect">
         <option value="1">Day 2050</option>
-        <option value="2">Day 2</option>
+        <option value="2">Day -1</option>
         <option value="3">Day 3</option>
         <option value="99">Test Day</option>
       </select>
     </div>
 
-
     <div id="days">
       <!--Day 2050-->
       <div class="day-container" id="day-1">
         <h2>-- Day 2050: Time Travel?! --</h2>
-        <h7>From: Leo, </h7>
-        <p>The Poor Elf That is writing this on Christmas</p>
+        <h7>From: <h7><a target="_blank" style="color: #00cc00;">Leo</a></h7>,</h7>
+        <p style="margin:0;"><small>Poor Elf That is writing this on Christmas</small></p>
         <p>Merry Christmas! Or like what Santa said Early Christmas, because he will be launching a <a href="https://en.wikipedia.org/wiki/Hawking%27s_time_traveller_party" target="_blank" style="color: #00cc00;">time travel party</a> through the whole December to all the future time travellers, you can come at any time in December.</p>
         <p>But because of the strong magnetic field on the North Pole, not only you can't take your <a href="https://en.wikipedia.org/wiki/Back_to_the_Future" target="_blank" style="color: #00cc00;">iconic DMC DeLorean</a> over, and after you time traveled you can only stay for an hour then you will flicker back. But as smart as you are, you found a pattern. The sequence looks awfully like the <a href="https://en.wikipedia.org/wiki/Recam%C3%A1n%27s_sequence" target="_blank" style="color: #00cc00;">Recamán's sequence</a>. There are only 744 hours in December, so you better hurry to calculate which hours to start (the range in your puzzle input) to get the most hours you can get with your idol Santa. You plug the sequence on your high tech calculator, if you start on hour 0, the first terms of the sequence are:</p>
         <p>0, 1, 3, 6, 2, 7, 13, 20, 12, 21, 11, 22, 10, 23, 9, 24, 8, 25, 43, 62, 42, 63, 41, 18, 42, 17, 43, 16, 44, 15, 45, 14, 46, 79, 113, 78, 114, 77, 39, 78, 38, 79, 37, 80, 36, 81, 35, 82, 34, 83, 33, 84, 32, 85, 31, 86, 30, 87, 29, 88, 28, 89, 27, 90, 26, 91, 157, 224, 156, 225, 155</p>
         <p>Number pattern starting at 0, where each new term is found by either subtracting or adding the current step number (1, 2, 3...) from the previous term, with a key rule: never go below zero, and never use a number that's already in the sequence; if you can't subtract, you must add, but you can repeat numbers when adding.</p>
-        <h7>- The Legendary Time Traveler</h7>
+        <p style="margin:0;">a0 = 0 (Start)</p>
+        <p style="margin:0;">n = 1: 0 − 1 = −1 (Negative, so add): a1 = 0 + 1 = 1</p>
+        <p style="margin:0;">n = 2: 1 − 2 = −1 (Negative, so add): a2 = 1 + 2 = 3</p>
+        <p>Time is evergoing and never stopping so for example if you decide to start at hour 3 the next jump is by 3 units and not starting at 0 units. If you picked an hour that is not in the sequence it won't work as it doesn't have a unit to jump. But remember that there are only 744 hours in December so the maximum number you can go up to is 744.</p>
+
+        <p style="margin:0; text-indent:620px;">- The Legendary Time Traveler</p>
         <p>
             <a target="_blank" style="color: #FFFFFF;">Now hurry before others get there!</a>
         </p>
@@ -64,52 +90,48 @@
         input2050();
         </script>
 
-        <textarea id="input2" placeholder="Paste answer here..."></textarea>
+        <textarea id="input1" placeholder="Paste answer here..."></textarea>
         <br>
-        <button onclick="day2050_1()">Answer Part 1</button>
-        <span id="stars1" class="stars"></span>
-
-        <button onclick="runDay(1, 2)">Answer Part 2</button>
-        <span id="stars2" class="stars"></span>
-
+        <button onclick="day2050()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
       </div>
      
       <!-- Test -->
       <div class="day-container" id="day-99">
         <h2>Test Day</h2>
+        <p><small><a target="_blank" style="color: #bdbdbd;">By Leo the Developer</a></small></p>
         <p>For Testing Purpose</p>
         <p>HI THIS IS A TEXT BOX</p>
 
         <p>
           Your puzzle input was
-          <span id="output21"></span>
+          <span id="output991"></span>
         </p>
 
-        <textarea id="input2" placeholder="Paste answer here..."></textarea>
+        <textarea id="input99" placeholder="Paste answer here..."></textarea>
         <br>
-        <button onclick="simpleday()">Answer Part 1</button>
-        <p><span id="output22"></span></p>
+        <button onclick="simpleday()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <p><span id="output992"></span></p>
 
+        <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
 
         <script>
-        let puzzleInput = Math.floor(Math.random() * 10);
-        document.getElementById("output21").textContent = puzzleInput;
+        let puzzleInput99 = Math.floor(Math.random() * 10);
+        document.getElementById("output991").textContent = puzzleInput;
 
         function simpleday() {
 
-          let raw = document.getElementById("input2").value;
-          let cleaned = raw.trim();
-          let userInput = Number(cleaned);
+          let userInput = Number(document.getElementById("input99").value);
 
           if (!isNaN(userInput)) {
-            if (userInput === puzzleInput + 1) {
-              document.getElementById("output22").textContent = "Correct!";
-              document.getElementById("input2").disabled = true;
+            if (userInput === puzzleInput99 + 1) {
+              document.getElementById("output992").textContent = "Correct!";
+              document.getElementById("input99").disabled = true;
             } else {
-              document.getElementById("output22").textContent = userInput;
+              document.getElementById("output992").textContent = "Wrong!";
             }
           } else {
-            document.getElementById("output22").textContent = "Please enter a valid number!";
+            document.getElementById("output992").textContent = "Please enter a valid number!";
           }
         }
         </script>
@@ -117,18 +139,135 @@
       </div>
 
 
+      <!-- Day 2 -->
+      <div class="day-container" id="day-2">
+        <h2>-- Day -1: <h7><a target="_blank" style="color: #ac0808;">Grinch!</a></h7> --</h2>
+        <p><small><a target="_blank" style="color: #bdbdbd;">By Alston Liu</a></small></p>
+        <p>Welcome to day negative one! Somehow this is achievable with time travel! :D</p>
+        <p>In order to start Advent lets do the following puzzle!</p>
+
+        <p style="margin:0; text-indent:130px; color:#fbff27;">?</p>
+        <p style="margin:0; text-indent:120px; color:#097000;">/+\</p>
+        <p style="margin:0; text-indent:112px; color:#097000;">/o*+\</p>
+        <p style="margin:0; text-indent:104px; color:#097000;">/++*o+\</p>
+        <p style="margin:0; text-indent:96px; color:#097000;">/o*+++*+\</p>
+        <p style="margin:0; text-indent:88px; color:#097000;">/+++*o*+++\</p>
+        <p style="margin:0; text-indent:80px; color:#097000;">/o*++o*+++*+\</p>
+        <p style="margin:0; text-indent:72px; color:#097000;">/++*o*+++*o+++\</p>
+        <p style="margin:0; text-indent:64px; color:#097000;">/***************\</p>
+        <p style="margin:0; text-indent:120px; color:#743e00;">***</p>
+        <p style="margin:0; text-indent:120px; color:#743e00;">***</p>
+        <p style="margin:0; text-indent:112px; color:#743e00;">*****</p>
+
+        <p>It's "Advent Code Time" for whatever reason we went from 50 challengers to one! But conveniently that is all you need to decorate the Christmas tree. That star you can collect by completing the following puzzle!</p>
+        <p>Due to the <a href="https://en.wikipedia.org/wiki/Industrial_Revolution" target="_blank" style="color: #00cc00;">Industrial Revolution</a>, the tree's additional decorations are automated. The issue is that the engineer <a target="_blank" style="color: #00cc00;">Alston Liu</a>, TIME TRAVELED TO LAS VEGAS! So there are some errors which make decorations of the same color appear next to each other when they should be spread out!</p>
+        <p>We will use the following input as an example.</p>
+        <p style="margin:0;"><a target="_blank" style="color: #ffffff;">1</a>23456</p>
+        <p style="margin:0;">0<a target="_blank" style="color: #ffffff;">1</a>23456</p>
+        <p style="margin:0;">65<a target="_blank" style="color: #ffffff;">4</a>321</p>
+        <p style="margin:0;"><a target="_blank" style="color: #ffffff;">1</a>23</p>
+        <img src="https://pngimg.com/uploads/christmas_tree/christmas_tree_PNG122.png" height="200" width="150">
+        <p>1. You have a list of numbers in each row</p>
+        <p>2. You will have to take the first number of the first line <br> ex. 1</p>
+        <p>3. You will have to take the second number of the second line <br> ex. 1</p>
+        <p>4. Then compare those numbers if they are equal <br> ex. 1 <a target="_blank" style="color: #ffffff;">They are equal!</a></p>
+        <p>5. Repeat steps 2 and 3 with the next lines such as... </p>
+          <p><p style="text-indent:30px;"> * You take the third number of the third line </p>
+          <p><p style="text-indent:30px;"> * Then compare this new number with the previous most recent number :D </p>
+          <p><p style="text-indent:30px;"> * If the index of the number you take is not available, wrap around the same line such as... </p>
+          <p><p style="text-indent:60px;"> - if the current line is "123456" but we want to take the 7th number, we would take the first number which is "1"</p>
+        <p>6. The final answer will be the number of times the two numbers are equal!</p>
+          <p><p style="text-indent:30px;"> * In the example it would be one!</p>
+
+        <p>
+          Your puzzle input was
+          <span id="output-11"></span>
+        </p>
+
+        <textarea id="input-1" placeholder="Paste answer here..."></textarea>
+        <br>
+        <button onclick="dayneg1()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <div id="output-12"></div>
+        <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
+        
+        <script>
+        let puzzleInputneg1 = Math.floor(Math.random() * 10);
+        document.getElementById("output991").textContent = puzzleInput;
+
+        function simpleday() {
+
+          let userInput = Number(document.getElementById("input99").value);
+
+          if (!isNaN(userInput)) {
+            if (userInput === puzzleInputneg1 + 1) {
+              document.getElementById("output992").textContent = "Correct!";
+              document.getElementById("input99").disabled = true;
+            } else {
+              document.getElementById("output992").textContent = "Wrong!";
+            }
+          } else {
+            document.getElementById("output992").textContent = "Please enter a valid number!";
+          }
+        }
+        </script>
+
+
+      </div>
+
       <!-- Day 3 -->
       <div class="day-container" id="day-3">
         <h2>Day 3</h2>
-        <textarea id="inputDay3" placeholder="Paste input here..."></textarea>
+        <textarea id="input3" placeholder="Paste answer here..."></textarea>
         <br>
-        <button onclick="runDay(3, 1)">Run Part 1</button>
-        <span id="stars31" class="stars"></span>
-        <div id="output31" class="output"></div>
-        <button onclick="runDay(3, 2)">Run Part 2</button>
-        <span id="stars32" class="stars"></span>
-        <div id="output32" class="output"></div>
+        <button onclick="runDay(3, 1)" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+        <div id="output31"></div>
       </div>
+
+      <!-- Home -->
+      <div class="day-container" id="day-0">
+        <h2>[ --- Mini Advent of Code --- ]</h2>
+        <p>Welcome to the official <a style="color: #00cc00;">Mini Advent of Code </a>website! You can browse through various custom, fan-made Christmas-themed programming problems made by your peers here, or you could submit your own through <a href="https://forms.gle/cGSTsMqioSZGzgRf9" target="_blank" style="color: #00cc00;">here</a>.</p>
+        <p>We encourage you to demonstrate your creativity and to submit your own problems to our site: the more the merrier!</p>
+        <p>Happy solving</p>
+      </div>
+
+      <!-- Search -->
+      <div class="day-container" id="day-100">
+        <form action="https://www.google.com/search" method="get" role="search">
+          <label for="site-search" class="visually-hidden">Search the site:</label>
+          <input type="search" id="site-search" name="q" placeholder="Search Google..." aria-label="Search through site content" />
+          <button type="submit">Search</button>
+        </form>
+        <p>Hello</p>
+      </div>
+
+      <!-- About -->
+      <div class="day-container" id="day-101">
+        <h2>[ --- About Us --- ]</h2>
+        <p>Lead Developer (scripting, web-design)</p>
+        <button onclick="showDay(102)" class="text-button" style="color:#00cc00;">Leo Xu</button>
+        <br>
+        <p>Writer (web-design, content manager)</p>
+        <button onclick="showDay(103)" class="text-button" style="color:#00cc00;">Ava</button>
+        <br>
+        <p style="margin: 0;">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━⋅ ⋆⋅ ☽ ◯ ☾ ⋅⋆ ⋅━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+        <p>Leo - Day 2050</p>
+        <p>Alston Liu - Day -1</p>
+        <p>Selina Jiang - Day 25</p>
+      </div>
+
+      <!-- Leo -->
+      <div class="day-container" id="day-102">
+        <h2>[ --- Leo --- ]</h2>
+        <p>Here are my dreams</p>
+      </div>
+
+      <!-- Ava -->
+      <div class="day-container" id="day-103">
+        <h2>[ --- Ava --- ]</h2>
+        <p>Hi, I'm the writer and screener of Mini Advent of Code! I'm really excited for the creation of this project, because being able to host, read through, and solve various individual's creations is an honor. If you'd like to personally send me a project, please do through GitHub. I'd love to see what you've made!</p>
+      </div>
+
     </div>
   </main>
 
@@ -136,20 +275,25 @@
   <script>
     const daySelect = document.getElementById('daySelect');
     const days = document.querySelectorAll('.day-container');
-
+    const dayControls = document.getElementById('dayControls');
 
     function showDay(day) {
       days.forEach(d => d.classList.remove('active'));
       document.getElementById('day-' + day).classList.add('active');
-    }
 
+      // Show selector ONLY on Days page
+      if (day == 1 || day == 2 || day == 3 || day == 99) {
+        dayControls.style.display = "block";
+      } else {
+        dayControls.style.display = "none";
+      }
+    }
 
     daySelect.addEventListener('change', e => {
       showDay(e.target.value);
     });
 
-
-    showDay(1); // default
+    showDay(0);
   </script>
 </body>
 </html>
