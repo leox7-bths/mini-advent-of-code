@@ -1,39 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Mini Advent of Code</title>
-  <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/leox7-bths/mini-advent-of-code/refs/heads/main/icon.png">
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="icon" type="image/x-icon"
+    href="https://raw.githubusercontent.com/leox7-bths/mini-advent-of-code/refs/heads/main/icon.png">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+  <header>
+    <button onclick="displayPage(0)" class="text-button" style="color:#00cc00;">[ Home ]</button>
+    <button onclick="displayPage(1)" class="text-button" style="color:#00cc00;">[ Days ]</button>
+    <button onclick="displayPage(100)" class="text-button" style="color:#00cc00;">[ Search ]</button>
+    <button onclick="displayPage(101)" class="text-button" style="color:#00cc00;">[ About Us ]</button>
+    <h1>Mini Advent of Code</h1>
+  </header>
 
-<header>
-  <button onclick="showDay(0)" class="text-button" style="color:#00cc00;">[ Home ]</button>
-  <button onclick="showDay(1)" class="text-button" style="color:#00cc00;">[ Days ]</button>
-  <button onclick="showDay(100)" class="text-button" style="color:#00cc00;">[ Search ]</button>
-  <button onclick="showDay(101)" class="text-button" style="color:#00cc00;">[ About Us ]</button>
-  <h1>Mini Advent of Code</h1>
-</header>
+  <main>
+    <div class="controls" id="dayControls">
+      <label for="daySelect">Select Day: </label>
+      <select id="daySelect">
+        <option value="1">Day 2050</option>
+        <option value="2">Day -1</option>
+        <option value="3">Day 25</option>
+        <option value="99">Test Day</option>
+      </select>
+    </div>
 
-<main>
-
-  <div class="controls" id="dayControls">
-    <label for="daySelect">Select Day: </label>
-    <select id="daySelect">
-      <option value="1">Day 2050</option>
-      <option value="2">Day -1</option>
-      <option value="3">Day 25</option>
-      <option value="99">Test Day</option>
-    </select>
-  </div>
-
-  <div id="days">
-  <iframe
-    id="dayFrame"
-    scrolling="no"
-    style="
+    <div id="days">
+      <iframe id="dayFrame" scrolling="no" style="
       width: 100%;
       max-width: 900px;
       min-height: 2000px;
@@ -41,11 +39,10 @@
       display: block;
       margin: 0 auto;
       overflow: hidden;
-    "
-    loading="lazy">
-  </iframe>
+    " loading="lazy">
+      </iframe>
 
-    <!-- Home -->
+      <!-- Home -->
       <div class="day-container" id="day-0">
         <h2>[ --- Mini Advent of Code --- ]</h2>
         <p>
@@ -55,15 +52,17 @@
           <a href="https://forms.gle/cGSTsMqioSZGzgRf9" target="_blank" style="color: #00cc00;">
             here</a>.
         </p>
-        <p>We encourage you to demonstrate your creativity and to submit your own problems to our site: the more the merrier!</p>
+        <p>We encourage you to demonstrate your creativity and to submit your own problems to our site: the more the
+          merrier!</p>
         <p>Happy solving!</p>
       </div>
 
-    <!-- Search -->
+      <!-- Search -->
       <div class="day-container" id="day-100">
         <form action="https://www.google.com/search" method="get" role="search">
           <label for="site-search" class="visually-hidden">Search the site:</label>
-          <input type="search" id="site-search" name="q" placeholder="Search Google..." aria-label="Search through site content" />
+          <input type="search" id="site-search" name="q" placeholder="Search Google..."
+            aria-label="Search through site content" />
           <button type="submit">Search</button>
         </form>
         <p>Hello</p>
@@ -76,36 +75,27 @@
         <h2 style="margin: 0;">Development Team</h2>
         <h3>Lead Developer (scripting, web-design)</h3>
         <p>
-          <a href="https://github.com/leox7-bths"
-          target="_blank"
-          style="color: #00cc00;">
-          Leo Xu</a>
+          <a href="https://github.com/leox7-bths" target="_blank" style="color: #00cc00;">
+            Leo Xu</a>
 
-          <button onclick="toggleText(1, this)"
-          class="text-button"
-          style="color:#00cc00;">
-          Expand</button>
+          <button onclick="toggleText(1, this)" class="text-button" style="color:#00cc00;">
+            Expand</button>
         </p>
         <p id="text1" style="display:none;">Bio<br>Bob the builder was here.</p>
 
 
         <h3>Writer (web-design, content manager)</h3>
         <p>
-          <a href="https://github.com/ill-birdie"
-          target="_blank"
-          style="color: #00cc00;">
-          Ava</a>
-          
-          <button onclick="toggleText(2, this)"
-          class="text-button"
-          style="color:#00cc00;">
-          Expand</button>
+          <a href="https://github.com/ill-birdie" target="_blank" style="color: #00cc00;">
+            Ava</a>
+
+          <button onclick="toggleText(2, this)" class="text-button" style="color:#00cc00;">
+            Expand</button>
         </p>
-        <p id="text2"
-        style="display:none;">
-        Hi, I'm the writer and screener of Mini Advent of Code! I'm really excited for the creation of this project,
-        because being able to host, read through, and solve various individual's creations is an honor.
-        If you'd like to personally send me a project, please do through GitHub. I'd love to see what you've made!
+        <p id="text2" style="display:none;">
+          Hi, I'm the writer and screener of Mini Advent of Code! I'm really excited for the creation of this project,
+          because being able to host, read through, and solve various individual's creations is an honor.
+          If you'd like to personally send me a project, please do through GitHub. I'd love to see what you've made!
         </p>
 
 
@@ -113,106 +103,106 @@
         <p style="text-align:center;">⋅ ⋆⋅ ☽ ◯ ☾ ⋅⋆ ⋅</p>
         <hr style="border: 1px solid #ffffff; margin: 0px 0;">
         <h3 style="margin: 0;">Contributors</h3>
-        <p style="margin: 0;">Leo Xu - <button onclick="showDay(1)" class="text-button" style="color:#00cc00;">Day 2050</button></p>
-        <p style="margin: 0;">Alston Liu - <button onclick="showDay(2)" class="text-button" style="color:#00cc00;">Day -1</button></p>
-        <p style="margin: 0;">Selina Jiang - <button onclick="showDay(3)" class="text-button" style="color:#00cc00;">Day 25</button></p>
+        <p style="margin: 0;">Leo Xu - <button onclick="displayPage(1)" class="text-button" style="color:#00cc00;">Day
+            2050</button></p>
+        <p style="margin: 0;">Alston Liu - <button onclick="displayPage(2)" class="text-button"
+            style="color:#00cc00;">Day -1</button></p>
+        <p style="margin: 0;">Selina Jiang - <button onclick="displayPage(3)" class="text-button"
+            style="color:#00cc00;">Day 25</button></p>
       </div>
 
 
       <script>
         function toggleText(id, btn) {
-            const text = document.getElementById('text' + id);
-            if (text.style.display === 'none') {
-                text.style.display = 'block';
-                btn.textContent = 'Collapse';
-            } else {
-                text.style.display = 'none';
-                btn.textContent = 'Expand';
-            }
+          const text = document.getElementById('text' + id);
+          if (text.style.display === 'none') {
+            text.style.display = 'block';
+            btn.textContent = 'Collapse';
+          } else {
+            text.style.display = 'none';
+            btn.textContent = 'Expand';
+          }
         }
       </script>
 
-  </div>
-      <!-- Leo -->
-      <div class="day-container" id="day-102">
-        <h2>[ --- Leo --- ]</h2>
-        <p>Here are my dreams</p>
-      </div>
+    </div>
+    <!-- Leo -->
+    <div class="day-container" id="day-102">
+      <h2>[ --- Leo --- ]</h2>
+      <p>Here are my dreams</p>
+    </div>
 
-      <!-- Ava -->
-      <div class="day-container" id="day-103">
-        <h2>[ --- Ava --- ]</h2>
-        <p>
-          Hi, I'm the writer and screener of the Mini Advent of Code project! I'm really excited for our debut,
-          because being able to host, read through, and solve your creations is an honor.
-          If you'd like to personally send me a project, please do through my GitHub. I'd love to see what you've made!
-        </p>
-      </div>
+    <!-- Ava -->
+    <div class="day-container" id="day-103">
+      <h2>[ --- Ava --- ]</h2>
+      <p>
+        Hi, I'm the writer and screener of the Mini Advent of Code project! I'm really excited for our debut,
+        because being able to host, read through, and solve your creations is an honor.
+        If you'd like to personally send me a project, please do through my GitHub. I'd love to see what you've made!
+      </p>
+    </div>
+  </main>
 
-</main>
+  <script>
+    const daySelect = document.getElementById('daySelect');
+    const dayControls = document.getElementById('dayControls');
+    const frame = document.getElementById('dayFrame');
 
-<script>
-  const daySelect = document.getElementById('daySelect');
-  const dayControls = document.getElementById('dayControls');
-  const frame = document.getElementById('dayFrame');
-
-  function hideAllInlineDays() {
-    document.querySelectorAll('.day-container').forEach(d => {
-      d.classList.remove('active');
-    });
-  }
-
-  function showDay(day) {
-    hideAllInlineDays();
-
-    // HOME
-    if (day == 0) {
-      dayControls.style.display = "none";
-      frame.style.display = "none";
-      document.getElementById('day-0').classList.add('active');
-      return;
+    function hideAllInlineDays() {
+      document.querySelectorAll('.day-container').forEach(d => {
+        d.classList.remove('active');
+      });
     }
 
-    // SEARCH
-    if (day == 100) {
-      dayControls.style.display = "none";
-      frame.style.display = "none";
-      document.getElementById('day-100').classList.add('active');
-      return;
+    function displayPage(page) {
+      hideAllInlineDays();
+
+      // HOME
+      if (page == 0) {
+        dayControls.style.display = "none";
+        frame.style.display = "none";
+        document.getElementById('day-0').classList.add('active');
+        return;
+      }
+
+      // SEARCH
+      if (page == 100) {
+        dayControls.style.display = "none";
+        frame.style.display = "none";
+        document.getElementById('day-100').classList.add('active');
+        return;
+      }
+
+      // ABOUT
+      if (page == 101) {
+        dayControls.style.display = "none";
+        frame.style.display = "none";
+        document.getElementById('day-101').classList.add('active');
+        return;
+      }
+
+      // NORMAL DAYS
+      dayControls.style.display = "block";
+      frame.style.display = "block";
+      frame.src = `days/day${page}.html`;
     }
 
-    // ABOUT
-    if (day == 101) {
-      dayControls.style.display = "none";
-      frame.style.display = "none";
-      document.getElementById('day-101').classList.add('active');
-      return;
-    }
+    daySelect.addEventListener('change', e => displayPage(e.target.value));
+    displayPage(0);
+  </script>
 
-    // NORMAL DAYS
-    dayControls.style.display = "block";
-    frame.style.display = "block";
-    frame.src = `days/day${day}.html`;
-  }
-
-  daySelect.addEventListener('change', e => showDay(e.target.value));
-  showDay(0);
-</script>
-
-<script>
-  function toggleText(id, btn) {
+  <script>
+    function toggleText(id, btn) {
       const text = document.getElementById('text' + id);
       if (text.style.display === 'none') {
-          text.style.display = 'block';
-          btn.textContent = 'Collapse';
+        text.style.display = 'block';
+        btn.textContent = 'Collapse';
       } else {
-          text.style.display = 'none';
-          btn.textContent = 'Expand';
+        text.style.display = 'none';
+        btn.textContent = 'Expand';
       }
-  }
-</script>
-
-
+    }
+  </script>
 </body>
-</html>
 
+</html>
