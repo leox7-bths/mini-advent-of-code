@@ -4,6 +4,7 @@ body {
     font-family: "Source Code Pro", monospace;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 header {
     background: #1a1a3b;
@@ -59,6 +60,9 @@ button:hover {
 }
 .day-container {
     display: none;
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 .day-container.active {
     display: block;
