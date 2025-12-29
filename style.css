@@ -32,16 +32,6 @@ textarea {
     font-size: 16px;
 }
 
-textarea {
-    width: 100%;
-    min-height: 120px;
-    background: #10101a;
-    color: #eee;
-    border: 1px solid #333;
-    padding: 10px;
-    resize: vertical;
-}
-
 button {
     background: #00cc00;
     color: #000;
@@ -52,8 +42,19 @@ button {
     margin-top: 8px;
 }
 
+
 button:hover {
     opacity: 0.9;
+}
+
+textarea {
+    width: 100%;
+    min-height: 120px;
+    background: #10101a;
+    color: #eee;
+    border: 1px solid #333;
+    padding: 10px;
+    resize: vertical;
 }
 
 .output {
@@ -63,6 +64,8 @@ button:hover {
     margin-top: 10px;
     white-space: pre-wrap;
 }
+
+
 
 .stars {
     color: #00ff00;
