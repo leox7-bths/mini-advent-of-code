@@ -12,21 +12,27 @@
 
 <body>
   <header>
-    <button onclick="displayPage(0)" class="text-button" style="color:#00cc00;">[ Home ]</button>
-    <button onclick="displayPage(1)" class="text-button" style="color:#00cc00;">[ Days ]</button>
-    <button onclick="displayPage(100)" class="text-button" style="color:#00cc00;">[ Search ]</button>
-    <button onclick="displayPage(101)" class="text-button" style="color:#00cc00;">[ About Us ]</button>
+    <button onclick="displayPage('home')" class="text-button" style="color:#00cc00;">[ Home ]</button>
+    <!-- Passing 2050 into displayPage() acts as a default page when clicking [ Days ]:
+     it directs the client to Leo's Advent of Code.
+     
+     When a browsing tab for Advents is created, this should be changed. -->
+    <button onclick="displayPage(2050)" class="text-button" style="color:#00cc00;">[ Days ]</button>
+    <button onclick="displayPage('search')" class="text-button" style="color:#00cc00;">[ Search ]</button>
+    <button onclick="displayPage('about')" class="text-button" style="color:#00cc00;">[ About Us ]</button>
     <h1>Mini Advent of Code</h1>
   </header>
 
   <main>
+
+    <!-- IDs for calling days using displayPage() -->
     <div class="controls" id="dayControls">
       <label for="daySelect">Select Day: </label>
       <select id="daySelect">
-        <option value="1">Day 2050</option>
-        <option value="2">Day -1</option>
-        <option value="3">Day 25</option>
-        <option value="99">Test Day</option>
+        <option value="2050">Day 2050</option>
+        <option value="-1">Day -1</option>
+        <option value="25">Day 25</option>
+        <option value="Test">Test Day</option>
       </select>
     </div>
 
@@ -43,7 +49,7 @@
       </iframe>
 
       <!-- Home -->
-      <div class="day-container" id="day-0">
+      <div class="day-container" id="home">
         <h1>[ --- Mini Advent of Code --- ]</h1>
         <p>
           Welcome to the official <a style="color: #00cc00;">Mini Advent of Code </a>website!
@@ -58,7 +64,7 @@
       </div>
 
       <!-- Search -->
-      <div class="day-container" id="day-100">
+      <div class="day-container" id="search">
         <form action="https://www.google.com/search" method="get" role="search">
           <label for="site-search" class="visually-hidden">Search the site:</label>
           <input type="search" id="site-search" name="q" placeholder="Search Google..."
@@ -70,7 +76,7 @@
 
 
       <!-- About -->
-      <div class="day-container" id="day-101">
+      <div class="day-container" id="about">
         <h1>[ --- About Us --- ]</h1>
         <h2 style="margin: 0;">Development Team</h2>
         <h3>Lead Developer (scripting, web-design)</h3>
@@ -144,27 +150,11 @@
     function displayPage(page) {
       hideAllInlineDays();
 
-      // HOME
-      if (page == 0) {
+      // Displays Home, Search, and About Us pages when prompted
+      if (page == 'home' || page == 'search' || page == 'about') {
         dayControls.style.display = "none";
         frame.style.display = "none";
-        document.getElementById('day-0').classList.add('active');
-        return;
-      }
-
-      // SEARCH
-      if (page == 100) {
-        dayControls.style.display = "none";
-        frame.style.display = "none";
-        document.getElementById('day-100').classList.add('active');
-        return;
-      }
-
-      // ABOUT
-      if (page == 101) {
-        dayControls.style.display = "none";
-        frame.style.display = "none";
-        document.getElementById('day-101').classList.add('active');
+        document.getElementById(`${page}`).classList.add('active');
         return;
       }
 
@@ -175,7 +165,7 @@
     }
 
     daySelect.addEventListener('change', e => displayPage(e.target.value));
-    displayPage(0);
+    displayPage('home');
   </script>
 
   <script>
