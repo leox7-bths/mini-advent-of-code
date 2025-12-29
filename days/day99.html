@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Day 99</title>
@@ -8,23 +9,24 @@
 
 <body>
   <h2>-- Day ?!?!: Test Day--</h2>
-    <p><small><a target="_blank" style="color: #bdbdbd;">By Leo the Developer</a></small></p>
-    <p>For Testing Purpose</p>
-    <p>HI THIS IS A TEXT BOX</p>
+  <p><small><a target="_blank" style="color: #bdbdbd;">By Leo the Developer</a></small></p>
+  <p>For Testing Purpose</p>
+  <p>HI THIS IS A TEXT BOX</p>
 
-    <p>
-      Your puzzle input was
-      <span id="output991"></span>
-    </p>
+  <p>
+    Your puzzle input was
+    <span id="output991"></span>
+  </p>
 
-    <textarea style="max-width: 200px; min-height: 10px; max-height: 20px;" id="input99" placeholder="Paste answer here..."></textarea>
-    <br>
-    <button onclick="simpleday()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
-    <p><span id="output992"></span></p>
+  <textarea style="max-width: 200px; min-height: 10px; max-height: 20px;" id="input99"
+    placeholder="Paste answer here..."></textarea>
+  <br>
+  <button onclick="simpleday()" class="text-button" style="color:#00cc00;">[ Submit ]</button>
+  <p><span id="output992"></span></p>
 
-    <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
+  <p>Feel stuck? Well sadly there is not enough Reddit discussion for this puzzle</p>
 
-    <script>
+  <script>
     let puzzleInput99 = Math.floor(Math.random() * 10);
     document.getElementById("output991").textContent = puzzleInput;
 
@@ -43,15 +45,16 @@
         document.getElementById("output992").textContent = "Please enter a valid number!";
       }
     }
-    </script>
+  </script>
 
-    <script>
-      function resizeIframe() {
-        const height = document.documentElement.scrollHeight;
-        parent.document.getElementById("dayFrame").style.height = height + "px";
-      }
+  <script>
+    function resizeIframe() {
+      const height = document.documentElement.scrollHeight;
+      parent.document.getElementById("dayFrame").style.height = height + "px";
+    }
 
-      window.addEventListener("load", resizeIframe);
-    </script>
+    window.addEventListener("load", resizeIframe);
+  </script>
 </body>
+
 </html>
