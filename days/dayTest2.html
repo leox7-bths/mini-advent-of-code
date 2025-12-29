@@ -9,35 +9,54 @@
 <body>
   <h2>-- Test Day --</h2>
   <p><small>By Ava</small></p>
-
-  <p>
-    Your puzzle input is: 
-  </p>
-
-  <textarea style="width: 200px; min-height: 20px; max-height: 20px;" id="input99"></textarea>
-
+  <p>Your task for today is to add one to your puzzle input. Goodluck; you'll need it.</p>
   <br>
+  <p>Your puzzle input is: <span id="input"></span></p>
 
-  <button onclick="simpleday()" class="text-button" style="color:#00cc00;">[Submit]</button>
-  <p><span id="output992"></span></p>
+  <textarea style="width: 200px; min-height: 20px; max-height: 20px;" id="userAnswer"></textarea>
+
+  <button onclick="checkAnswer()" class="text-button" id="submit">[Submit]</button>
+  <br>
+  <span id="siteOutput"></span>
 
   <script>
-    let puzzleInput99 = Math.floor(Math.random() * 10);
-    document.getElementById("output991").textContent = puzzleInput;
+    let puzzleInput = Math.floor(Math.random() * 10) + 1;
+    document.getElementById("input").textContent = puzzleInput;
 
-    function simpleday() {
+    function checkAnswer() {
+      let userAnswerRaw = document.getElementById("userAnswer").value;
+      let userAnswer = Number(userAnswerRaw);
+      let output = document.getElementById('siteOutput');
+      let puzzleAnswer = puzzleInput + 1;
 
-      let userInput99 = Number(document.getElementById("input99").value);
+      // Returns early if answer is not a number or an empty string
+      if (isNaN(userAnswer)) {
+        output.textContent = `The answer will always be a number, so an answer like '${userAnswerRaw}' will never be correct.`;
+        return;
+      }
+      if (userAnswerRaw.length === 0) {
+        output.textContent = "You need to actually provide an answer before you hit the button.";
+        return;
+      }
 
-      if (!isNaN(userInput99)) {
-        if (userInput99 === puzzleInput99 + 1) {
-          document.getElementById("output992").textContent = "Correct!";
-          document.getElementById("input99").disabled = true;
-        } else {
-          document.getElementById("output992").textContent = "Wrong!";
-        }
+      // Appropriate response based on the answer
+      if (userAnswer === puzzleAnswer) {
+        output.textContent = `That's correct! ${puzzleInput} + 1 is indeed ${puzzleAnswer}!
+        I'm not too sure if I can give you a gold star, though. Sorry!`;
+        output.style.color = 'yellow';
+        let answerBox = document.getElementById('userAnswer');
+        let submitButton = document.getElementById('submit');
+        answerBox.style.display = 'none';
+        submitButton.style.display = 'none';
       } else {
-        document.getElementById("output992").textContent = "Please enter a valid number!";
+        let reasonWrong;
+        if (userAnswer > puzzleAnswer) {
+          reasonWrong = 'high';
+        } else if (userAnswer < puzzleAnswer) {
+          reasonWrong = 'low';
+        }
+        output.textContent = `That's not right. Your answer is too ${reasonWrong}.
+        If you need help, you may want to consider using a calculator.`;
       }
     }
   </script>
@@ -47,7 +66,6 @@
       const height = document.documentElement.scrollHeight;
       parent.document.getElementById("dayFrame").style.height = height + "px";
     }
-
     window.addEventListener("load", resizeIframe);
   </script>
 </body>
