@@ -15,7 +15,7 @@
 
   <textarea style="width: 200px; min-height: 20px; max-height: 20px;" id="userAnswer"></textarea>
 
-  <button onclick="checkAnswer()" class="text-button" id="submit">[Submit]</button>
+  <button onclick="displayOutput()" class="text-button" id="submit">[Submit]</button>
   <br>
   <span id="siteOutput"></span>
 
@@ -23,11 +23,16 @@
     let puzzleInput = Math.floor(Math.random() * 10) + 1;
     document.getElementById("input").textContent = puzzleInput;
 
-    function checkAnswer() {
+    // The solution to a given Advent of Code can be pasted here.
+    function getAnswer(input) {
+      return (input + 1);
+    }
+
+    function displayOutput() {
       let userAnswerRaw = document.getElementById("userAnswer").value;
       let userAnswer = Number(userAnswerRaw);
       let output = document.getElementById('siteOutput');
-      let puzzleAnswer = puzzleInput + 1;
+      let puzzleAnswer = getAnswer(puzzleInput);
 
       // Returns early if answer is not a number or an empty string
       if (isNaN(userAnswer)) {
