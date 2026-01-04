@@ -48,14 +48,16 @@ button:hover {
 }
 
 textarea {
-    width: 100%;
-    min-height: 120px;
+    max-width: 200px;
+    max-height: 20px;
     background: #10101a;
     color: #eee;
     border: 1px solid #333;
     padding: 10px;
-    resize: vertical;
+    resize: none;
 }
+
+
 
 .output {
     background: #10101a;
@@ -64,8 +66,6 @@ textarea {
     margin-top: 10px;
     white-space: pre-wrap;
 }
-
-
 
 .stars {
     color: #00ff00;
