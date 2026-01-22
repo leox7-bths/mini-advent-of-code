@@ -65,19 +65,118 @@
       </div>
 
       <!-- Search -->
-      <div class="day-container" id="search">
-        <form action="https://www.google.com/search" method="get" role="search">
-          <label for="site-search" class="visually-hidden">Search the site:</label>
-          <input type="search" id="site-search" name="q" placeholder="Search Google..."
-            aria-label="Search through site content" />
-          <button type="submit">Search</button>
-        </form>
-        <p>Hello</p>
-      </div>
+        <div class="day-container" id="search">
+            <h2>Search Days</h2>
+            <div class="search-bar">
+                <input
+                        type="search"
+                        id="searchInput"
+                        placeholder="Search by day, title, or author"
+                />
+                <button id="filterBtn" class="text-button">Filter ▾</button>
+            </div>
 
+            <div id="filterMenu" class="filter-menu" style="display:none;">
+                <div data-filter="all">All</div>
+                <div data-filter="author">Author</div>
+                <div data-filter="title">Title</div>
+                <div data-filter="day">Day</div>
+            </div>
 
-      <!-- About -->
+            <ul id="searchResults"></ul>
+        </div>
+
+        <script>
+            const daysIndex = [
+              { day: 2050, title: "Time Travel!?", author: "Leo Xu" },
+              { day: -1, title: "Grinch!", author: "Alston Liu" },
+              { day: 25, title: "Delivery Dilemma", author: "Selina Jiang" },
+              { day: "Test", title: "Test", author: "Test" },
+              { day: "Test2", title: "Test2", author: "Test2" },
+              { day: "Test3", title: "Test3", author: "Test3" }
+            ];
+            let activeFilter = 'all';
+            const input = document.getElementById('searchInput');
+            const results = document.getElementById('searchResults');
+            const filterBtn = document.getElementById('filterBtn');
+            const filterMenu = document.getElementById('filterMenu');
+            // ----- Filter menu toggle -----
+            filterBtn.onclick = () => {
+              filterMenu.style.display =
+                filterMenu.style.display === 'block' ? 'none' : 'block';
+            };
+            // ----- Select filter -----
+            filterMenu.querySelectorAll('div').forEach(option => {
+              option.onclick = () => {
+                activeFilter = option.dataset.filter;
+                filterBtn.textContent = `Filter: ${option.textContent} ▾`;
+                filterMenu.style.display = 'none';
+                runSearch();
+              };
+            });
+
+            // ----- Search -----
+            input.addEventListener('input', runSearch);
+
+            function runSearch() {
+              console.log("runSearch called with query:", input.Value);
+              console.log("activeFilter:", activeFilter);
+
+              const query = input.value.toLowerCase().trim();
+              results.innerHTML = '';
+
+              if (!query) return;
+
+              const matches = daysIndex.filter(d => {
+                if (activeFilter === 'author')
+                  return d.author.toLowerCase().includes(query);
+
+                if (activeFilter === 'title')
+                  return d.title.toLowerCase().includes(query);
+
+                if (activeFilter === 'day')
+                  return d.day.toString().includes(query);
+
+                return (
+                  d.day.toString().includes(query) ||
+                  d.title.toLowerCase().includes(query) ||
+                  d.author.toLowerCase().includes(query)
+                );
+              });
+
+              if (!matches.length) {
+                results.innerHTML = '<li>No results found</li>';
+                return;
+              }
+
+              matches.forEach(d => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                  <button class="text-button" style="color:#00cc00">
+                    Day ${d.day} — ${d.title} (by ${d.author})
+                  </button>
+                `;
+                li.querySelector('button').onclick = () => displayPage(d.day);
+                results.appendChild(li);
+              });
+            }
+
+            // ----- Close filter when clicking outside -----
+            document.addEventListener('click', e => {
+              if (!filterBtn.contains(e.target) && !filterMenu.contains(e.target)) {
+                filterMenu.style.display = 'none';
+              }
+            });
+        console.log("Search script loaded");
+        console.log("daysIndex:", daysIndex);
+        console.log("Search input element:", document.getElementById('searchInput'));
+        </script>
+
+        <!-- About -->
       <div class="day-container" id="about">
+        <h2>This Advent of Code is also free to use.</h2>
+        <h3>However, we wish you can have basic respect to our site builders </h3>
+        <h3>and the fabulous creativity of our prompt contributors. </h3>
         <h1>[ --- About Us --- ]</h1>
         <h2 style="margin: 0;">Development Team</h2>
         <h3>Lead Developer (scripting, web-design)</h3>
@@ -85,9 +184,15 @@
           <a href="https://github.com/leox7-bths" target="_blank" style="color: #00cc00;">
             Leo Xu</a>
 
-          <button onclick="toggleText(1, this)" class="text-button" style="color:#00cc00;">
-            Expand</button>
         </p>
+          <p>
+              <a href="https://github.com/WoodFish0226" target="_blank" style="color: #00cc00;">
+                  Yuhao Chen</a>
+
+              <button onclick="toggleText(1, this)" class="text-button" style="color:#00cc00;">
+                  Expand</button>
+          </p>
+
         <p id="text1" style="display:none;">
           Bob the builder was here.
         </p>
@@ -152,7 +257,7 @@
       hideAllInlineDays();
 
       // Displays Home, Search, and About Us pages when prompted
-      if (page == 'home' || page == 'search' || page == 'about') {
+      if (page == 'home' || page === 'search' || page == 'about') {
         dayControls.style.display = "none";
         frame.style.display = "none";
         document.getElementById(`${page}`).classList.add('active');

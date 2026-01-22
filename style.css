@@ -101,3 +101,46 @@ textarea {
 .text-button:hover {
     text-decoration: underline;
 }
+
+.filter-menu {
+  display: none;
+  position: absolute;
+  background: #111;
+  border: 1px solid #00cc00;
+  margin-top: 5px;
+  max-height: 120px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.filter-menu div {
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #00cc00;
+}
+
+.filter-menu div:hover {
+  background: #00cc00;
+  color: #000;
+}
+
+.filter-menu {
+  display: none;
+  position: absolute;
+  background: #111;
+  border: 1px solid #00cc00;
+  max-height: 120px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+.filter-menu div {
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #00cc00;
+}
+
+.filter-menu div:hover {
+  background: #00cc00;
+  color: #000;
+}
